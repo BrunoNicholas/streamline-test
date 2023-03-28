@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('nurse_profies', function (Blueprint $table) {
+        Schema::create('patient_profiles', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->unique();
             $table->unsignedBigInteger('village_id')->nullable();
+
             $table->softDeletes();
             $table->timestamps();
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nurse_profies');
+        Schema::dropIfExists('patient_profiles');
     }
 };

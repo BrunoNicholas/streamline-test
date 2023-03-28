@@ -13,7 +13,17 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('patient_profile_id');
+            $table->unsignedBigInteger('doctor_profile_id')->unique();
+            $table->unsignedBigInteger('nurse_profile_id')->unique();
+            $table->text('clinical_notes')->nullable();
+            $table->dateTime('appointment_date')->nullable();
+
             $table->timestamps();
+
+            $table->foreign('patient_profile_id')->references('id')->on('patient_profiles')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('doctor_profile_id')->references('id')->on('doctor_profiles')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('nurse_profile_id')->references('id')->on('nurse_profiles')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
