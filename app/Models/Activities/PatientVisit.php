@@ -1,22 +1,21 @@
 <?php
 
-namespace App\Models\Location;
+namespace App\Models\Activities;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Region extends Model
+class PatientVisit extends Model
 {
     use SoftDeletes;
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'region_name'
+        'patient_profile_id', 'patient_refer',
     ];
 
     /**

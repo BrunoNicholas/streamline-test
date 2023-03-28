@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('villages', function (Blueprint $table) {
+        Schema::create('patient_visits', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('district_id');
-            $table->string('village_name');
+            $table->unsignedBigInteger('patient_profile_id');
+            $table->string('patient_refer')->default('home');
+            $table->softDeletes();
             $table->timestamps();
+
+
+            $table->foreign('patient_profile_id')->references('id')->on('patient_profiles')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('villages');
+        Schema::dropIfExists('patient_visits');
     }
 };

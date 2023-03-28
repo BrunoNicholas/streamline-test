@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models\Location;
+namespace App\Models\System;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Region extends Model
+class LabTests extends Model
 {
     use SoftDeletes;
 
@@ -16,7 +16,7 @@ class Region extends Model
      * @var array
      */
     protected $fillable = [
-        'region_name'
+        'lab_test_name', 'lab_test_description',
     ];
 
     /**

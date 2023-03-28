@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models\Location;
+namespace App\Models\UsersProfiles;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Region extends Model
+class NurseProfile extends Model
 {
     use SoftDeletes;
 
@@ -16,7 +16,7 @@ class Region extends Model
      * @var array
      */
     protected $fillable = [
-        'region_name'
+        'user_id', 'village_id',
     ];
 
     /**
