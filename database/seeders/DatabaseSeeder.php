@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             LabTestsTableSeeder::class,
             VillagesTableSeeder::class,
             PatientsTableSeeder::class,
+            AppointmentsTableSeeder::class,
         ]);
     }
 }

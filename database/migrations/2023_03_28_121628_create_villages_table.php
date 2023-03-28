@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('villages', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('district_id');
+            $table->string('village_name');
             $table->timestamps();
         });
     }

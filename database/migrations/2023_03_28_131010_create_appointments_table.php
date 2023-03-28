@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('patient_profile_id');
-            $table->unsignedBigInteger('doctor_profile_id')->unique();
-            $table->unsignedBigInteger('nurse_profile_id')->unique();
+            $table->unsignedBigInteger('doctor_profile_id')->nullable();
+            $table->unsignedBigInteger('nurse_profile_id')->nullable();
             $table->text('clinical_notes')->nullable();
             $table->dateTime('appointment_date')->nullable();
             $table->string('appointment_status')->nullable()->comment('pending,active');
