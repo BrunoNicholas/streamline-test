@@ -2,6 +2,9 @@
 
 namespace App\Models\Activities;
 
+use App\Models\UsersProfiles\DoctorProfile;
+use App\Models\UsersProfiles\NurseProfile;
+use App\Models\UsersProfiles\PatientProfile;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
