@@ -2,6 +2,9 @@
 
 namespace App\Models\Records;
 
+use App\Models\UsersProfiles\DoctorProfile;
+use App\Models\UsersProfiles\NurseProfile;
+use App\Models\UsersProfiles\PatientProfile;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -27,4 +30,19 @@ class MedicalReport extends Model
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function doctor()
+    {
+        $this->belongsTo(DoctorProfile::class);
+    }
+
+    public function nurse()
+    {
+        $this->belongsTo(NurseProfile::class);
+    }
+
+    public function patient()
+    {
+        $this->belongsTo(PatientProfile::class);
+    }
 }
