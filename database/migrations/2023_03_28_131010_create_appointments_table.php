@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('nurse_profile_id')->unique();
             $table->text('clinical_notes')->nullable();
             $table->dateTime('appointment_date')->nullable();
+            $table->string('appointment_status')->nullable()->comment('pending,active');
 
             $table->timestamps();
 

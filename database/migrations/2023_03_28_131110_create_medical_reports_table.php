@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('medical_reports', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('doctor_profie_id')->nullable();
-            $table->unsignedBigInteger('nurse_id')->nullable();
-            $table->unsignedBigInteger('patient_profie_id')->nullable();
+            $table->unsignedBigInteger('doctor_profile_id')->nullable();
+            $table->unsignedBigInteger('nurse_profile_id')->nullable();
+            $table->unsignedBigInteger('patient_profile_id')->nullable();
+
+            $table->unsignedBigInteger('appointment_id')->nullable();
+            $table->unsignedBigInteger('patient_visit_id')->nullable();
 
             $table->text('recorded_symptoms')->nullable();
             $table->string('lab_tests')->nullable()->comment('Multiple IDs here');
@@ -25,9 +28,10 @@ return new class extends Migration
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('doctor_profie_id')->references('id')->on('doctor_profiles')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('nurse_id')->references('id')->on('nurses')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('patient_profie_id')->references('id')->on('patient_profiles')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('doctor_profile_id')->references('id')->on('doctor_profiles')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('nurse_profile_id')->references('id')->on('nurses')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('patient_profile_id')->references('id')->on('patient_profiles')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('appointment_id')->references('id')->on('appointments')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
